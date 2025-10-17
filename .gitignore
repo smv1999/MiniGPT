@@ -1,0 +1,4 @@
+venv
+__pycache__
+gpt_model_datasets/datasets
+gpt_model_datasets/final_dataset
