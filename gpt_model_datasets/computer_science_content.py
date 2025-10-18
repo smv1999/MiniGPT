@@ -4,7 +4,7 @@ import wikipediaapi
 wiki = wikipediaapi.Wikipedia(
     language='en',
     extract_format=wikipediaapi.ExtractFormat.WIKI,
-    user_agent='TinyGPT-CS/1.0 (ComputerScienceLLM; research; +https://huggingface.co)'
+    user_agent='MiniGPT-CS/1.0 (ComputerScienceLLM; research; +https://huggingface.co)'
 )
 
 with open("datasets/cs_topics.txt", 'r') as f:

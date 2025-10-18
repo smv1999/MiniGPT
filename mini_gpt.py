@@ -10,7 +10,7 @@ print("Mixed precision enabled:", mixed_precision.global_policy())
 
 
 @keras.saving.register_keras_serializable(package="CustomModels")
-class TinyGPT(tf.keras.Model):
+class MiniGPT(tf.keras.Model):
     def __init__(self, vocab_size, seq_len, embed_dim, num_heads, num_layers, mlp_ratio, dropout, **kwargs):
         super().__init__(**kwargs)
         self.seq_len = seq_len

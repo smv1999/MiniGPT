@@ -1,6 +1,6 @@
 from keras.models import load_model
 import sentencepiece as spm
-from tiny_gpt import TinyGPT
+from mini_gpt import MiniGPT
 from utils.constants import *
 import tensorflow as tf
 
@@ -10,10 +10,10 @@ sp.load(SP_MODEL)
 
 # 2️⃣ Recreate model and load weights
 vocab_size = sp.get_piece_size()
-model = TinyGPT(vocab_size, SEQ_LEN, EMBED_DIM,
+model = MiniGPT(vocab_size, SEQ_LEN, EMBED_DIM,
                 NUM_HEADS, NUM_LAYERS, MLP_RATIO, DROPOUT)
 model.build((None, 128))
-model.load_weights("checkpoints/tinygpt_full_model.weights.h5")
+model.load_weights("checkpoints/minigpt_full_model.weights.h5")
 
 
 # 3️⃣ Prepare input text (question/prompt)

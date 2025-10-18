@@ -1,7 +1,7 @@
 import os
 import tensorflow as tf
 import sentencepiece as spm
-from tiny_gpt import TinyGPT
+from mini_gpt import MiniGPT
 from utils.constants import *
 from utils.utility import create_dataset, sample_sequence
 
@@ -18,7 +18,7 @@ CHECKPOINT_DIR = "./checkpoints"
 def train_model():
     dataset = create_dataset(sp, "gpt_model_datasets/final_dataset/corpus.txt")
 
-    model = TinyGPT(VOCAB_SIZE, SEQ_LEN, EMBED_DIM,
+    model = MiniGPT(VOCAB_SIZE, SEQ_LEN, EMBED_DIM,
                     NUM_HEADS, NUM_LAYERS, MLP_RATIO, DROPOUT)
     opt = tf.keras.optimizers.Adam(learning_rate=LEARNING_RATE)
     loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
@@ -42,7 +42,7 @@ def train_model():
 
     os.makedirs(CHECKPOINT_DIR, exist_ok=True)
     model.save_weights(os.path.join(
-        CHECKPOINT_DIR, "tinygpt_full_model.weights.h5"))
+        CHECKPOINT_DIR, "minigpt_full_model.weights.h5"))
     print("✅ Training completed and model saved.")
 
     # Sampling
